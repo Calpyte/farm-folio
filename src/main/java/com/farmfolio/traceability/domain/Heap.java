@@ -15,8 +15,12 @@ import javax.persistence.Temporal;
 @Where(clause = "is_deleted = false")
 public class Heap extends AuditableBase{
 
-    private String name;
+    private String heapId;
+    private String farmerId;
+    private String farmerName;
+    private Double latitude;
+    private Double longitude;
     private Double inputWeight;
     private Double amountPaid;
-    private String farmer;
+
 }

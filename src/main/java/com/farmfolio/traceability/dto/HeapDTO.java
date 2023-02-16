@@ -7,7 +7,10 @@ import lombok.Data;
 public class HeapDTO {
 
     private String id;
-    private String name;
     private Double latitude;
     private Double longitude;
+    private Double inputWeight;
+    private Double amountPaid;
+    private String farmerId;
+    private String farmerName;
 }

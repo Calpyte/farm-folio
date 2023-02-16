@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.util.List;
 
 @Service
 public class HeapServiceImpl  implements HeapService {
@@ -20,12 +21,16 @@ public class HeapServiceImpl  implements HeapService {
 
 
     @Override
-    public HeapDTO saveFarmer(HeapDTO heapDTO) throws ParseException, CustomException {
-        Heap heap = Mapper.map(heapDTO, Heap.class);
+    public Heap saveFarmer(Heap heap) throws ParseException, CustomException {
       //  validate(heap);
         Mapper.setAuditable(heap);
         heapRepository.save(heap);
-        return heapDTO;
+        return heap;
+    }
+
+    @Override
+    public List<Heap> findAllById(List<String> ids) {
+        return heapRepository.findAllById(ids);
     }
 
 //    private void validate(Heap heap) throws CustomException {
